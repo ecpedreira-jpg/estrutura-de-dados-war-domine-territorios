@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <string.h>
+
+// Definição da estrutura Territorio
+// Esta struct armazena os dados básicos de um território:
+// - nome: nome do território
+// - cor: cor do exército associado ao território
+// - tropas: quantidade de tropas presentes
+struct Territorio {
+    char nome[30];
+    char cor[10];
+    int tropas;
+};
+
+int main() {
+    // Declaração de um vetor de 5 estruturas Territorio
+    struct Territorio territorios[5];
+
+    // Entrada dos dados para cada território
+    for (int i = 0; i < 5; i++) {
+        printf("\n--- Cadastro do Território %d ---\n", i + 1);
+
+        // Solicita e lê o nome do território
+        printf("Digite o nome do território: ");
+        scanf(" %[^\n]", territorios[i].nome); // lê até espaço
+
+        // Solicita e lê a cor do exército
+        printf("Digite a cor do exército: ");
+        scanf(" %[^\n]", territorios[i].cor);
+
+        // Solicita e lê a quantidade de tropas
+        printf("Digite a quantidade de tropas: ");
+        scanf("%d", &territorios[i].tropas);
+    }
+
+    // Exibição dos dados após o cadastro
+    printf("\n=== Dados dos Territórios Cadastrados ===\n");
+    for (int i = 0; i < 5; i++) {
+        printf("\nTerritório %d:\n", i + 1);
+        printf("Nome: %s\n", territorios[i].nome);
+        printf("Cor do Exército: %s\n", territorios[i].cor);
+        printf("Quantidade de Tropas: %d\n", territorios[i].tropas);
+    }
+
+    return 0;
+}
